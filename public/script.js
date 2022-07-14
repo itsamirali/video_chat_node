@@ -104,7 +104,7 @@ const playStop = () => {
 const setMuteButton = () => {
   const html = `
     <i class="fas fa-microphone"></i>
-    <span>Mute</span>
+    <span>قطع صدا</span>
   `
   document.querySelector('.main__mute_button').innerHTML = html;
 }
@@ -112,7 +112,7 @@ const setMuteButton = () => {
 const setUnmuteButton = () => {
   const html = `
     <i class="unmute fas fa-microphone-slash"></i>
-    <span>Unmute</span>
+    <span>وصل صدا</span>
   `
   document.querySelector('.main__mute_button').innerHTML = html;
 }
@@ -120,7 +120,7 @@ const setUnmuteButton = () => {
 const setStopVideo = () => {
   const html = `
     <i class="fas fa-video"></i>
-    <span>Stop Video</span>
+    <span>قطع تصویر</span>
   `
   document.querySelector('.main__video_button').innerHTML = html;
 }
@@ -128,7 +128,15 @@ const setStopVideo = () => {
 const setPlayVideo = () => {
   const html = `
   <i class="stop fas fa-video-slash"></i>
-    <span>Play Video</span>
+    <span>وصل تصویر</span>
   `
   document.querySelector('.main__video_button').innerHTML = html;
+}
+
+const leaveRoom = (id) => {
+  let value = confirm("پایان تماس ؟");
+  if (value === true) {
+    socket.emit('disconnect')
+  }
+  // window.close();
 }
